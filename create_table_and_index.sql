@@ -25,4 +25,6 @@ create index idx_date on vacation_weather_data(date);
 /*
 create index idx_time on vacation_weather_data(time);
 */
+
 select * from vacation_weather_data
+
