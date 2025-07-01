@@ -11,7 +11,10 @@ def data_connection():
         database='vacation_weather',
         port='3307'
     )
+    return connection
 
+def daily_average_temp():
+    connection = data_connection()
     query = """with daily_average AS (
              SELECT day, date, avg(temperature) AS avg_daily_temp
              from vacation_weather_data
@@ -28,25 +31,29 @@ def data_connection():
     rows = cursor.fetchall()
 
     columns = [i[0] for i in cursor.description]
-    return rows, columns
 
-rows, columns = data_connection()
-df = pd.DataFrame(rows, columns=columns)
+    df = pd.DataFrame(rows, columns=columns)
 
-total_rows = df.index.size
+    total_rows = df.index.size
 
-#print(total_rows)
-#print(df)
+    #print(total_rows)
+    #print(df)
 
-temp_data = df['avg_temp']
-day = df['day']
+    temp_data = df['avg_temp']
+    day = df['day']
 
-plt.figure(figsize=(15, 5))
-plt.plot(day, temp_data, linestyle='-', marker='o', color='blue')
-plt.title('Temperature During Vacation')
-plt.xlabel('Day Of Week')
-plt.ylabel('Temperature')
-plt.xticks(rotation=45)
-plt.grid(True)
-plt.tight_layout()
-plt.show()
+    plt.figure(figsize=(15, 5))
+    plt.plot(day, temp_data, linestyle='-', marker='o', color='blue')
+    plt.title('Temperature During Vacation')
+    plt.xlabel('Day Of Week')
+    plt.ylabel('Temperature')
+    plt.xticks(rotation=45)
+    plt.grid(True)
+    plt.tight_layout()
+    plt.show()
+
+# Remove '#' to show graph
+#daily_average_temp()
+
+def avg_daily_humidity():
+    connection = data_connection()
