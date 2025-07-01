@@ -1,6 +1,10 @@
 # Auto Data Collection Through Email
+
 To use this project I would send an email to the email account associated with the python script.
 The python auto script would run at a scheduled time (11 PM), collect the data from the email and insert it into the mysql database.
+
+## Files:
+- [click here for the python script](https://github.com/RohrbachMatthew/Vacation_Weather/blob/main/weather_email_auto_python/main.py) - This is the Script for the graphs that were made
 
 ---
 ## Graphs
