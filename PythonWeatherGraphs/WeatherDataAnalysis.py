@@ -53,7 +53,7 @@ def daily_average_temp():
     plt.show()
 
 # Remove '#' to show graph
-#daily_average_temp()
+daily_average_temp()
 
-def avg_daily_humidity():
-    connection = data_connection()
+#def avg_daily_humidity():
+    #connection = data_connection()
