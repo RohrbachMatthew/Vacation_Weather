@@ -5,6 +5,7 @@ The python auto script would run at a scheduled time (11 PM), collect the data f
 
 ## Files:
 - [click here for the python script](https://github.com/RohrbachMatthew/Vacation_Weather/blob/main/weather_email_auto_python/main.py) - This is the Script for the graphs that were made
+- [click here for table creation file](https://github.com/RohrbachMatthew/Vacation_Weather/blob/main/create_table_and_index.sql) - This is a .sql file to create the database table
 
 ---
 ## Graphs
