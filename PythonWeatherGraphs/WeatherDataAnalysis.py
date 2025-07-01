@@ -12,7 +12,16 @@ def data_connection():
         port='3307'
     )
 
-    query = 'SELECT * FROM vacation_weather_data'
+    query = """with daily_average AS (
+             SELECT day, date, avg(temperature) AS avg_daily_temp
+             from vacation_weather_data
+             GROUP BY day, date)
+             Select day, count(*) as num_days,
+             round(AVG(avg_daily_temp),2) AS avg_temp
+             from daily_average
+             group by day
+             order by field(day, 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')"""
+
     cursor = connection.cursor()
     cursor.execute(query)
 
@@ -29,13 +38,13 @@ total_rows = df.index.size
 #print(total_rows)
 #print(df)
 
-temp_data = df['temperature']
+temp_data = df['avg_temp']
 day = df['day']
 
 plt.figure(figsize=(15, 5))
-plt.plot(temp_data, linestyle='-', marker='o', color='blue')
+plt.plot(day, temp_data, linestyle='-', marker='o', color='blue')
 plt.title('Temperature During Vacation')
-plt.xlabel('Day Number')
+plt.xlabel('Day Of Week')
 plt.ylabel('Temperature')
 plt.xticks(rotation=45)
 plt.grid(True)

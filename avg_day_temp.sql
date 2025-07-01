@@ -9,4 +9,4 @@ Select day, count(*) as num_days,
 round(AVG(avg_daily_temp),2) AS avg_temp
 from daily_average
 group by day
-order by field(day, 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday')
+order by field(day, 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')
