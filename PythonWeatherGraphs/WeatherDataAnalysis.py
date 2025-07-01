@@ -52,8 +52,27 @@ def daily_average_temp():
     plt.tight_layout()
     plt.show()
 
-# Remove '#' to show graph
-daily_average_temp()
+    cursor.close()
+    connection.close()
 
-#def avg_daily_humidity():
-    #connection = data_connection()
+def avg_daily_humidity():
+    connection = data_connection()
+    query = """
+    Select * FROM vacation_weather_data
+    """
+    cursor = connection.cursor()
+    cursor.execute(query)
+    rows = cursor.fetchall()
+    columns = [i[0]for i in cursor.description]
+
+    df = pd.DataFrame(rows, columns=columns)
+
+    print(df)
+
+    cursor.close()
+    connection.close()
+
+# Remove '#' to show graph
+#daily_average_temp()
+avg_daily_humidity()
+
