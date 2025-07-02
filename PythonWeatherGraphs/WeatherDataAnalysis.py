@@ -7,7 +7,7 @@ def data_connection():
     connection = mysql.connector.connect(
         host='localhost',
         user='root',
-        password='Gigity102',
+        password='Password1',
         database='vacation_weather',
         port='3307'
     )
@@ -57,17 +57,34 @@ def daily_average_temp():
 
 def avg_daily_humidity():
     connection = data_connection()
-    query = """
-    Select * FROM vacation_weather_data
-    """
+    query = """with humidity_avg as(
+select day, date, avg(humidity) as avg_daily_humidity
+from vacation_weather_data
+group by day, date)
+
+-- Average by the day
+select day, round(AVG(avg_daily_humidity),2) as avg_daily_humidity
+from humidity_avg
+group by day
+order by field(day, 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')"""
     cursor = connection.cursor()
     cursor.execute(query)
     rows = cursor.fetchall()
     columns = [i[0]for i in cursor.description]
 
     df = pd.DataFrame(rows, columns=columns)
+    humidity_avg = df['avg_daily_humidity']
+    day = df['day']
+    plt.figure(figsize=(10, 5))
+    plt.plot(day, humidity_avg, linestyle='-', marker='o' ,color='red')
+    plt.title('AVG Daily Humidity')
+    plt.xlabel('Day Of The Week')
+    plt.ylabel('Humidity Percentage')
+    plt.grid(True)
+    plt.show()
 
-    print(df)
+
+    #print(df)
 
     cursor.close()
     connection.close()

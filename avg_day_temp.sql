@@ -17,6 +17,7 @@ order by field(day, 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')
 
 -- This is for the avg daily humidity
 -- Get average humidity and make a temp table
+/*
 with humidity_avg as(
 select day, date, avg(humidity) as avg_daily_humidity
 from vacation_weather_data
@@ -28,3 +29,4 @@ round(AVG(avg_daily_humidity),2) as avg_daily_humidity
 from humidity_avg
 group by day
 order by field(day, 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')
+*/
