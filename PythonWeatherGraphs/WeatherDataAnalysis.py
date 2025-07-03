@@ -89,7 +89,41 @@ order by field(day, 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')"""
     cursor.close()
     connection.close()
 
+def daily_conditions():
+    connection = data_connection()
+    cursor = connection.cursor()
+
+    query = ("""
+    with ranked_conditions as (
+SELECT day, conditions, 
+count(*) as frequency,
+rank() over (partition by day ORDER BY COUNT(*) DESC, conditions) as rn
+from vacation_weather_data
+group by day, conditions
+)
+select day, conditions
+from ranked_conditions
+where rn=1;
+    """)
+
+    cursor.execute(query)
+
+    rows = cursor.fetchall()
+    columns = [i[0] for i in cursor.description]
+
+    df = pd.DataFrame(rows, columns=columns)
+    conditions_avg = df['conditions'].value_counts()
+    days = df['day']
+
+    plt.figure(figsize=(10, 5))
+    plt.pie(conditions_avg, labels=conditions_avg.index,
+    autopct='%1.1f%%',
+    startangle=90,
+    colors=['lightblue', 'brown', 'grey'])
+    plt.title('Weather Condition Distribution')
+    plt.show()
+
 # Remove '#' to show graph
 #daily_average_temp()
-avg_daily_humidity()
-
+#avg_daily_humidity()
+daily_conditions()
