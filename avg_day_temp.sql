@@ -14,6 +14,7 @@ group by day
 order by field(day, 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')
 */
 
+-- ---------------------------------------------------------------------------
 
 -- This is for the avg daily humidity
 -- Get average humidity and make a temp table
@@ -31,6 +32,7 @@ group by day
 order by field(day, 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday')
 */
 
+-- -----------------------------------------------------------------------
 
 /*
 -- This is the average daily weather conditions (clear,cloudy,rain)
@@ -47,7 +49,9 @@ from ranked_conditions
 where rn=1;
 */
 
+-- -------------------------------------------------------------------
 
+/*
 -- Join table ot compare temps and humidity
 with temp AS (
 SELECT day, date, AVG(temperature) as avg_temp
@@ -68,4 +72,4 @@ round(avg(avg_humidity), 2) as avg_daily_humidity
 FROM merged
 GROUP BY day
 ORDER BY FIELD(day, 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday');
-
+*/
