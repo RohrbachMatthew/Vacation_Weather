@@ -14,13 +14,16 @@ The data is from VA Beach.
 ## Graphs
 **Below are graphs for the vacation weather analysis**  
 **Click the graph to enlarge**
-<p align='center'>Average temperature for each day</p>
+<p align='center'>Average Temperature For Each Day</p>
 <p align='center'>
 <img src="https://github.com/RohrbachMatthew/Vacation_Weather/blob/main/img/AvgTempGraph.png" alt="avg temp graph" width=300>
 </p>
 
-<p align='center'> Average humidity percentage for each day
+<p align='center'> Average Humidity Percentage For Each Day
 </p>
 <p align='center'>
 <img src="https://github.com/RohrbachMatthew/Vacation_Weather/blob/main/img/AvgDailyHumidity.png" alt="avg humidity graph" width=300>
 </p>
+
+<p align='center'> Weather Condition Distribution During The Trip </p>
+<p align='center'><img src="https://github.com/RohrbachMatthew/Vacation_Weather/blob/main/img/weather_conditions.png" alt="weather conditions" width=250></p>
