@@ -14,16 +14,26 @@ The data is from VA Beach.
 ## Graphs
 **Below are graphs for the vacation weather analysis**  
 **Click the graph to enlarge**
-<p align='center'>Average Temperature For Each Day</p>
-<p align='center'>
-<img src="https://github.com/RohrbachMatthew/Vacation_Weather/blob/main/img/AvgTempGraph.png" alt="avg temp graph" width=300>
-</p>
+<table>
+  <tr>
+    <td align="center">
+      <strong>Average Temperature For Each Day</strong><br>
+      <img src="https://github.com/RohrbachMatthew/Vacation_Weather/blob/main/img/AvgTempGraph.png" width="200"/>
+    </td>
+    <td align="center">
+      <strong>Average Humidity Percentage For Each Day</strong><br>
+      <img src="https://github.com/RohrbachMatthew/Vacation_Weather/blob/main/img/AvgDailyHumidity.png" width="200"/>
+    </td>
+        <td align="center">
+      <strong>Weather Condition Distribution During The Trip</strong><br>
+      <img src="https://github.com/RohrbachMatthew/Vacation_Weather/blob/main/img/weather_conditions.png" width="150"/>
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <strong>Comparison of Temperatures and Humidity</strong><br>
+      <img src="https://github.com/RohrbachMatthew/Vacation_Weather/blob/main/img/humidity_temperature.png" width="200"/>
+    </td>
+  </tr>
+</table>
 
-<p align='center'> Average Humidity Percentage For Each Day
-</p>
-<p align='center'>
-<img src="https://github.com/RohrbachMatthew/Vacation_Weather/blob/main/img/AvgDailyHumidity.png" alt="avg humidity graph" width=300>
-</p>
-
-<p align='center'> Weather Condition Distribution During The Trip </p>
-<p align='center'><img src="https://github.com/RohrbachMatthew/Vacation_Weather/blob/main/img/weather_conditions.png" alt="weather conditions" width=250></p>
